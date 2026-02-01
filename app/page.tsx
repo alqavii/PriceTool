@@ -53,10 +53,10 @@ export default function Home() {
         {/* Header */}
         <header className="text-center py-8">
           <h1 className="text-4xl sm:text-5xl font-bold mb-2">
-            Asset Price Analyzer
+            Endfield Price Analyser
           </h1>
           <p className="text-xl text-text-secondary">
-            Make smarter trading decisions
+            Should you wait or not?
           </p>
         </header>
 
