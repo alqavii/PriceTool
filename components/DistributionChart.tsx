@@ -136,7 +136,7 @@ export default function DistributionChart({
         borderWidth: 1,
         callbacks: {
           label: function (context) {
-            return `Probability: ${context.parsed.y.toFixed(6)}`;
+            return `Probability: ${context.parsed.y?.toFixed(6) ?? 'N/A'}`;
           },
         },
       },
