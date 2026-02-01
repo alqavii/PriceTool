@@ -1,6 +1,7 @@
 'use client';
 
 import DistributionChart from './DistributionChart';
+import WaitTimeChart from './WaitTimeChart';
 import { AnalysisResult } from '@/types/analysis';
 
 interface CombinedAnalysisProps {
@@ -87,6 +88,11 @@ export default function CombinedAnalysis({ result }: CombinedAnalysisProps) {
       {/* Shared Chart */}
       <div className="py-4">
         <DistributionChart buyPrice={buyPrice} sellPrice={sellPrice} />
+      </div>
+
+      {/* Wait Time Analysis Chart */}
+      <div className="py-4 border-t border-gray-700 pt-6">
+        <WaitTimeChart buyPrice={buyPrice} rollsPerDay={rollsPerDay} />
       </div>
 
       {/* Split Analysis Below Chart */}
