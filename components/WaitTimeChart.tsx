@@ -122,11 +122,8 @@ export default function WaitTimeChart({
             borderColor: 'rgba(239, 68, 68, 0.3)',
             borderWidth: 1,
             label: {
+              display: true,
               content: 'Worth Waiting',
-              position: 'start',
-              backgroundColor: 'rgba(239, 68, 68, 0.8)',
-              color: '#f5f5f5',
-              padding: 4,
             },
           },
           // Yellow zone (2-5 days) - Borderline
@@ -138,11 +135,8 @@ export default function WaitTimeChart({
             borderColor: 'rgba(245, 158, 11, 0.3)',
             borderWidth: 1,
             label: {
+              display: true,
               content: 'Borderline',
-              position: 'start',
-              backgroundColor: 'rgba(245, 158, 11, 0.8)',
-              color: '#f5f5f5',
-              padding: 4,
             },
           },
           // Green zone (5+ days) - Sell now!
@@ -154,11 +148,8 @@ export default function WaitTimeChart({
             borderColor: 'rgba(16, 185, 129, 0.3)',
             borderWidth: 1,
             label: {
+              display: true,
               content: 'Sell Now',
-              position: 'start',
-              backgroundColor: 'rgba(16, 185, 129, 0.8)',
-              color: '#f5f5f5',
-              padding: 4,
             },
           },
         },
