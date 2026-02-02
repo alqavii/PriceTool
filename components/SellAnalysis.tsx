@@ -50,6 +50,38 @@ export default function SellAnalysis({ result }: SellAnalysisProps) {
     <div className="bg-surface rounded-lg p-6 shadow-lg space-y-6">
       <h2 className="text-2xl font-bold">Sell Price Analysis</h2>
 
+      {/* Percentile Display */}
+      {sellPercentile !== undefined && (
+        <div className="text-center py-4">
+          <div className="text-5xl font-bold mb-2">
+            {sellPercentile.toFixed(1)}
+            <span className="text-2xl text-text-secondary">th</span>
+          </div>
+          <div className="text-lg text-text-secondary mb-2">percentile</div>
+          {probBetter !== undefined && (
+            <div className="text-text-secondary mt-1">
+              {probBetter.toFixed(1)}% better prices available
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Wait Time Analysis */}
+      {expectedDays !== undefined && recommendation && (
+        <div className="text-center py-4 border-b border-gray-700">
+          <div className="text-text-secondary mb-2">
+            Expected wait for better price
+          </div>
+          <div className="text-4xl font-bold mb-2">
+            {expectedDays < 100 ? expectedDays.toFixed(1) : '100+'}
+            <span className="text-xl text-text-secondary ml-2">days</span>
+          </div>
+          <div className={`text-xl font-semibold ${recommendation.color}`}>
+            {recommendation.emoji} {recommendation.text}
+          </div>
+        </div>
+      )}
+
       {/* Profit Display */}
       <div className="text-center py-4 border-b border-gray-700">
         <div className="text-lg text-text-secondary mb-2">
@@ -73,45 +105,11 @@ export default function SellAnalysis({ result }: SellAnalysisProps) {
         </div>
       </div>
 
-      {/* Wait Time Analysis */}
-      {expectedDays !== undefined && recommendation && (
-        <div className="text-center py-4 border-b border-gray-700">
-          <div className="text-text-secondary mb-2">
-            Expected wait for better price
-          </div>
-          <div className="text-4xl font-bold mb-2">
-            {expectedDays < 100 ? expectedDays.toFixed(1) : '100+'}
-            <span className="text-xl text-text-secondary ml-2">days</span>
-          </div>
-          <div className={`text-xl font-semibold ${recommendation.color}`}>
-            {recommendation.emoji} {recommendation.text}
-          </div>
-        </div>
-      )}
-
       {/* Chart */}
       <div className="py-4">
         <DistributionChart buyPrice={buyPrice} sellPrice={sellPrice} />
       </div>
 
-      {/* Statistics */}
-      <div className="space-y-3 border-t border-gray-700 pt-4">
-        {sellPercentile !== undefined && (
-          <div className="flex items-center justify-between">
-            <span className="text-text-secondary">
-              Sell price percentile:
-            </span>
-            <span className="font-semibold">{sellPercentile.toFixed(1)}th</span>
-          </div>
-        )}
-
-        {probBetter !== undefined && (
-          <div className="flex items-center justify-between">
-            <span className="text-text-secondary">Better prices available:</span>
-            <span className="font-semibold">{probBetter.toFixed(1)}%</span>
-          </div>
-        )}
-      </div>
 
       {/* Info box */}
       <div className="text-sm text-text-secondary bg-background rounded p-3">
