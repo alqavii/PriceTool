@@ -123,7 +123,6 @@ export default function WaitTimeChart({
             borderWidth: 1,
             label: {
               content: 'Worth Waiting',
-              enabled: true,
               position: 'start',
               backgroundColor: 'rgba(239, 68, 68, 0.8)',
               color: '#f5f5f5',
@@ -140,7 +139,6 @@ export default function WaitTimeChart({
             borderWidth: 1,
             label: {
               content: 'Borderline',
-              enabled: true,
               position: 'start',
               backgroundColor: 'rgba(245, 158, 11, 0.8)',
               color: '#f5f5f5',
@@ -157,7 +155,6 @@ export default function WaitTimeChart({
             borderWidth: 1,
             label: {
               content: 'Sell Now',
-              enabled: true,
               position: 'start',
               backgroundColor: 'rgba(16, 185, 129, 0.8)',
               color: '#f5f5f5',
