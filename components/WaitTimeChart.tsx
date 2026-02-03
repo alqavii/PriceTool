@@ -30,21 +30,37 @@ ChartJS.register(
 
 interface WaitTimeChartProps {
   buyPrice: number;
+  sellPrice?: number;
   rollsPerDay: number;
 }
 
 export default function WaitTimeChart({
   buyPrice,
+  sellPrice,
   rollsPerDay,
 }: WaitTimeChartProps) {
-  // Generate data points for target prices from buyPrice to 5500
+  // If sell price is above 5500, show placeholder
+  if (sellPrice && sellPrice > 5500) {
+    return (
+      <div className="w-full text-center py-8">
+        <div className="text-4xl mb-2">📊</div>
+        <div className="text-lg text-text-secondary">N/A</div>
+        <div className="text-sm text-text-secondary mt-2">
+          Sell price exceeds maximum range (5500)
+        </div>
+      </div>
+    );
+  }
+
+  // Generate data points for target prices from sellPrice to 5500
   const targetPrices: number[] = [];
   const waitTimes: number[] = [];
 
-  // Start from the next increment of 100 above buyPrice
-  const startPrice = Math.ceil(buyPrice / 100) * 100;
+  // Start from the user's sell price (or buyPrice if no sellPrice), round to next increment of 50
+  const basePrice = sellPrice || buyPrice;
+  const startPrice = Math.ceil(basePrice / 50) * 50;
 
-  for (let targetPrice = startPrice; targetPrice <= 5500; targetPrice += 100) {
+  for (let targetPrice = startPrice; targetPrice <= 5500; targetPrice += 50) {
     const days = expectedDaysToWaitMultiRoll(targetPrice, rollsPerDay);
     // Cap at 100 days for visualization
     const cappedDays = Math.min(days, 100);

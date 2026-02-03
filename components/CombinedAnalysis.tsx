@@ -92,7 +92,7 @@ export default function CombinedAnalysis({ result }: CombinedAnalysisProps) {
 
       {/* Wait Time Analysis Chart */}
       <div className="py-4 border-t border-gray-700 pt-6">
-        <WaitTimeChart buyPrice={buyPrice} rollsPerDay={rollsPerDay ?? 1} />
+        <WaitTimeChart buyPrice={buyPrice} sellPrice={sellPrice} rollsPerDay={rollsPerDay ?? 1} />
       </div>
 
       {/* Split Analysis Below Chart */}
