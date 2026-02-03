@@ -193,9 +193,10 @@ export default function WaitTimeChart({
         },
       },
       y: {
+        type: 'logarithmic',
         title: {
           display: true,
-          text: 'Expected Days to Wait',
+          text: 'Expected Days to Wait (log scale)',
           color: '#f5f5f5',
           font: {
             weight: 'bold',
@@ -206,8 +207,11 @@ export default function WaitTimeChart({
         },
         ticks: {
           color: '#a3a3a3',
+          callback: function(value) {
+            return value.toLocaleString();
+          },
         },
-        min: 0,
+        min: 0.1,
         max: 100,
       },
     },
